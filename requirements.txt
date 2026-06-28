@@ -1,0 +1,13 @@
+numpy
+pandas
+matplotlib
+plotly
+scikit-learn
+tensorflow
+joblib
+pyyaml
+streamlit
+ipykernel
+notebook
+
+-e .
