@@ -1,0 +1,57 @@
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+.env
+.venv
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Logs
+logs/
+*.log
+
+# Artifacts
+artifacts/model/*
+artifacts/preprocessor/*
+artifacts/reports/*
+
+# Keep folders
+!artifacts/model/.gitkeep
+!artifacts/preprocessor/.gitkeep
+!artifacts/reports/.gitkeep
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# TensorFlow
+*.keras
+*.h5
+*.pb
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Misc
+*.sqlite3
