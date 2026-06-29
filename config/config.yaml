@@ -43,11 +43,26 @@ model:
     - 0.00
 
 callbacks:
-  early_stopping_patience: 10
+  early_stopping:
+    monitor: val_loss
 
-  reduce_lr_patience: 5
+    patience: 10
 
-  checkpoint_monitor: val_loss
+    restore_best_weights: true
+
+  reduce_lr:
+    monitor: val_loss
+
+    factor: 0.2
+
+    patience: 5
+
+    min_lr: 0.00001
+
+  checkpoint:
+    monitor: val_loss
+
+    save_best_only: true
 
 data_ingestion:
   raw_data_path: data/customer_churn.csv
