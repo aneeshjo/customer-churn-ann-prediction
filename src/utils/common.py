@@ -1,5 +1,6 @@
 import joblib
 from pathlib import Path
+import tensorflow as tf
 
 
 def save_object(file_path, obj):
@@ -23,3 +24,16 @@ def load_object(file_path):
     """
 
     return joblib.load(file_path)
+
+def load_model(model_path: str):
+    """
+    Loads the trained TensorFlow model.
+    """
+    return tf.keras.models.load_model(model_path)
+
+
+def load_preprocessor(preprocessor_path: str):
+    """
+    Loads the saved preprocessing pipeline.
+    """
+    return joblib.load(preprocessor_path)
