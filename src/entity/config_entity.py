@@ -43,3 +43,17 @@ class CallbackConfig:
     reduce_lr_patience: int
 
     checkpoint_monitor: str
+
+@dataclass
+class DataIngestionConfig:
+    raw_data_path: str
+    train_data_path: str
+    test_data_path: str
+    test_size: float
+    random_state: int
+    target_column: str
+
+@dataclass
+class DataPreprocessingConfig:
+
+    preprocessor_path: str

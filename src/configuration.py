@@ -12,7 +12,9 @@ from src.constants import CONFIG_FILE_PATH
 from src.entity.config_entity import (
     TrainingConfig,
     ModelConfig,
-    CallbackConfig
+    CallbackConfig,
+    DataIngestionConfig,
+    DataPreprocessingConfig
 )
 
 
@@ -73,5 +75,24 @@ class ConfigurationManager:
             reduce_lr_patience=callback["reduce_lr_patience"],
 
             checkpoint_monitor=callback["checkpoint_monitor"]
+
+        )
+    def get_data_ingestion_config(self):
+
+        ingestion = self.config["data_ingestion"]
+
+        return DataIngestionConfig(
+            raw_data_path=ingestion["raw_data_path"],
+            train_data_path=ingestion["train_data_path"],
+            test_data_path=ingestion["test_data_path"],
+            test_size=ingestion["test_size"],
+            random_state=ingestion["random_state"],
+            target_column=ingestion["target_column"]
+        )
+    def get_data_preprocessing_config(self):
+
+        return DataPreprocessingConfig(
+
+            preprocessor_path="artifacts/preprocessor/preprocessor.pkl"
 
         )

@@ -41,3 +41,23 @@ callbacks:
   reduce_lr_patience: 5
 
   checkpoint_monitor: val_loss
+
+data_ingestion:
+  raw_data_path: data/customer_churn.csv
+
+  train_data_path: artifacts/train.csv
+
+  test_data_path: artifacts/test.csv
+
+  test_size: 0.20
+
+  random_state: 42
+
+  target_column: Churned
+
+preprocessing:
+  numerical_scaler: standard
+
+  categorical_encoder: onehot
+
+  drop_first: false
