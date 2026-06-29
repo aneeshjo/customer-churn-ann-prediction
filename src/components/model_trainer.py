@@ -18,6 +18,7 @@ from src.configuration import ConfigurationManager
 from src.components.model_builder import ANNModelBuilder
 from src.logger import logger
 from src.exception import CustomException
+from src.components.model_evaluator import ModelEvaluator
 
 
 class ModelTrainer:
@@ -139,3 +140,19 @@ class ModelTrainer:
         except Exception as e:
 
             raise CustomException(e, sys)
+        
+        evaluator = ModelEvaluator()
+
+        metrics = evaluator.evaluate(
+
+        model,
+
+        history,
+
+        X_test,
+
+        y_test
+
+        )
+
+        print(metrics)
