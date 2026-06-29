@@ -34,6 +34,8 @@ class ModelConfig:
 
     output_activation: str
 
+    dropout: list
+
 
 @dataclass
 class CallbackConfig:

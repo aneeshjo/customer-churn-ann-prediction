@@ -58,7 +58,9 @@ class ConfigurationManager:
 
             activation=model["activation"],
 
-            output_activation=model["output_activation"]
+            output_activation=model["output_activation"],
+
+            dropout=model["dropout"]
 
         )
 
