@@ -4,7 +4,9 @@ Training Pipeline
 
 from src.components.data_ingestion import DataIngestion
 from src.components.data_preprocessing import DataPreprocessing
+from src.components.model_evaluator import ModelEvaluator
 from src.components.model_trainer import ModelTrainer
+
 
 
 class TrainPipeline:
@@ -41,14 +43,17 @@ class TrainPipeline:
 
         )
 
-        return (
+        # -----------------------------------
+        # Evaluate Model
+        # -----------------------------------
 
+        evaluator = ModelEvaluator()
+
+        metrics = evaluator.evaluate(
             model,
-
             history,
-
             X_test,
-
             y_test
-
         )
+
+        return metrics

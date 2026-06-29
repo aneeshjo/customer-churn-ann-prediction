@@ -4,6 +4,7 @@ import pandas as pd
 
 from sklearn.compose import ColumnTransformer
 
+from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 
 from sklearn.preprocessing import (
@@ -72,6 +73,7 @@ class DataPreprocessing:
             numeric_pipeline = Pipeline(
 
                 steps=[
+                    ("imputer", SimpleImputer(strategy="median")),
 
                     ("scaler", StandardScaler())
 
@@ -84,6 +86,12 @@ class DataPreprocessing:
                 steps=[
 
                     (
+                        "imputer", 
+                        SimpleImputer(strategy="most_frequent")
+                    ),
+
+                    (
+                        
                         "encoder",
                         OneHotEncoder(
                             handle_unknown="ignore"
