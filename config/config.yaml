@@ -1,0 +1,43 @@
+# ==========================================================
+# Customer Churn ANN Configuration
+# ==========================================================
+
+project:
+  name: Customer Churn ANN Prediction
+
+paths:
+  raw_data: data/customer_churn.csv
+
+  model_dir: artifacts/model
+
+  preprocessor_dir: artifacts/preprocessor
+
+  report_dir: artifacts/reports
+
+training:
+  epochs: 100
+
+  batch_size: 32
+
+  learning_rate: 0.001
+
+  validation_split: 0.20
+
+  random_state: 42
+
+model:
+  hidden_layers:
+    - 64
+    - 32
+    - 16
+
+  activation: relu
+
+  output_activation: sigmoid
+
+callbacks:
+  early_stopping_patience: 10
+
+  reduce_lr_patience: 5
+
+  checkpoint_monitor: val_loss
